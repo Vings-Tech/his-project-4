@@ -5,30 +5,25 @@ import { Instagram, MessageCircle } from 'lucide-react';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="relative z-10 w-full border-t border-gray-200 bg-white/50 backdrop-blur-xl py-12 mt-auto">
-            <div className="max-w-4xl mx-auto px-6 sm:px-8">
-
-                <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-
+        <footer className="footer-container">
+            <div className="footer-content">
+                <div className="footer-top">
                     {/* Left Side */}
-                    <div className="flex flex-col items-center md:items-start gap-4">
-
-                        <div className="flex items-center gap-3 group">
-                            <div className="flex-shrink-0 transition-all duration-300 group-hover:scale-110">
+                    <div className="brand-section">
+                        <div className="logo-group">
+                            <div className="logo-wrapper">
                                 <img
                                     src="/icon.png"
                                     alt="VingsTech Logo"
-                                    className="h-10 w-auto object-contain"
+                                    className="logo-img"
                                 />
                             </div>
-
-                            <h2 className="text-xl font-black tracking-tight text-gray-800 uppercase">
-                                VINGS<span className="text-blue-600">TECH</span>
+                            <h2 className="brand-title">
+                                VINGS<span className="brand-highlight">TECH</span>
                             </h2>
                         </div>
-
-                        <div className="text-center md:text-left">
-                            <p className="text-gray-500 font-medium italic leading-tight">
+                        <div className="quote-wrapper">
+                            <p className="quote-text">
                                 "The best code is the code that goes unnoticed,
                                 <br />
                                 because it works so flawlessly."
@@ -37,57 +32,225 @@ const Footer: React.FC = () => {
                     </div>
 
                     {/* Right Side */}
-                    <div className="flex flex-col gap-4 items-center md:items-end w-full md:w-auto">
-
-                        <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    <div className="contact-section">
+                        <h3 className="contact-title">
                             Chat with Developer
                         </h3>
-
-                        <div className="flex items-center justify-center md:justify-end gap-4 w-full md:w-auto">
-
+                        <div className="social-links">
                             <a
                                 href="https://www.instagram.com/vingstech.in/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-2xl text-gray-600 hover:text-blue-600 transition-all shadow-sm"
+                                className="social-button instagram"
                             >
                                 <Instagram size={18} />
-                                <span className="text-sm font-bold">Instagram</span>
+                                <span>Instagram</span>
                             </a>
-
                             <a
                                 href="https://wa.me/918778264166"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-2xl text-gray-600 hover:text-green-600 transition-all shadow-sm"
+                                className="social-button whatsapp"
                             >
                                 <MessageCircle size={18} />
-                                <span className="text-sm font-bold">WhatsApp</span>
+                                <span>WhatsApp</span>
                             </a>
-
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Section */}
-                <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
-
-                    <p className="text-xs font-medium text-gray-500 text-center sm:text-left">
+                <div className="footer-bottom">
+                    <p className="copyright-text">
                         © {new Date().getFullYear()} Vings Tech. Crafted with passion.
                     </p>
-
                     <img
                         src="/icon.png"
                         alt="Vings Tech Logo"
-                        className="h-10 w-auto object-contain"
+                        className="bottom-logo"
                     />
-
-                    <p className="text-xs font-medium text-gray-500 text-center sm:text-right">
+                    <p className="powered-text">
                         Powered by Vings Tech Projects
                     </p>
-
                 </div>
             </div>
+
+            <style jsx>{`
+                .footer-container {
+                    position: relative;
+                    z-index: 10;
+                    width: 100%;
+                    border-top: 1px solid var(--border);
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(16px);
+                    padding: 3rem 0;
+                    margin-top: auto;
+                }
+                .footer-content {
+                    max-width: 56rem;
+                    margin: 0 auto;
+                    padding: 0 1.5rem;
+                }
+                .footer-top {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 2.5rem;
+                }
+                @media (min-width: 768px) {
+                    .footer-top {
+                        flex-direction: row;
+                        align-items: center;
+                    }
+                }
+                .brand-section {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1rem;
+                }
+                @media (min-width: 768px) {
+                    .brand-section {
+                        align-items: flex-start;
+                    }
+                }
+                .logo-group {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                }
+                .logo-wrapper {
+                    flex-shrink: 0;
+                    transition: transform 0.3s ease;
+                }
+                .logo-group:hover .logo-wrapper {
+                    transform: scale(1.1);
+                }
+                .logo-img {
+                    height: 2.5rem;
+                    width: auto;
+                    object-fit: contain;
+                }
+                .brand-title {
+                    font-size: 1.25rem;
+                    font-weight: 900;
+                    letter-spacing: -0.025em;
+                    color: var(--text-main);
+                    text-transform: uppercase;
+                }
+                .brand-highlight {
+                    color: var(--primary);
+                }
+                .quote-wrapper {
+                    text-align: center;
+                }
+                @media (min-width: 768px) {
+                    .quote-wrapper {
+                        text-align: left;
+                    }
+                }
+                .quote-text {
+                    color: var(--text-muted);
+                    font-weight: 500;
+                    font-style: italic;
+                    line-height: 1.25;
+                    font-size: 0.95rem;
+                }
+                .contact-section {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1rem;
+                    width: 100%;
+                }
+                @media (min-width: 768px) {
+                    .contact-section {
+                        align-items: flex-end;
+                        width: auto;
+                    }
+                }
+                .contact-title {
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    color: var(--text-muted);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                }
+                .social-links {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    width: 100%;
+                }
+                @media (min-width: 768px) {
+                    .social-links {
+                        justify-content: flex-end;
+                        width: auto;
+                    }
+                }
+                .social-button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    padding: 0.75rem 1rem;
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid var(--border);
+                    border-radius: 1rem;
+                    color: var(--text-muted);
+                    text-decoration: none;
+                    transition: all 0.2s ease;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+                }
+                .social-button:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                    transform: translateY(-2px);
+                }
+                .social-button span {
+                    font-size: 0.875rem;
+                    font-weight: 700;
+                }
+                .social-button.instagram:hover {
+                    color: #E1306C;
+                    border-color: #E1306C;
+                }
+                .social-button.whatsapp:hover {
+                    color: #25D366;
+                    border-color: #25D366;
+                }
+                .footer-bottom {
+                    margin-top: 3rem;
+                    padding-top: 2rem;
+                    border-top: 1px solid var(--border);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 1rem;
+                }
+                @media (min-width: 640px) {
+                    .footer-bottom {
+                        flex-direction: row;
+                    }
+                }
+                .copyright-text, .powered-text {
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    color: var(--text-muted);
+                    text-align: center;
+                }
+                @media (min-width: 640px) {
+                    .copyright-text { text-align: left; }
+                    .powered-text { text-align: right; }
+                }
+                .bottom-logo {
+                    height: 2.5rem;
+                    width: auto;
+                    object-fit: contain;
+                }
+            `}</style>
         </footer>
     );
 };
